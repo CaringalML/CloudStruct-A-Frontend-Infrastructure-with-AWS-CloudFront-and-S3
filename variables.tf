@@ -1,3 +1,5 @@
+# variables.tf - Updated to support frontend-to-backend API requests
+
 # Basic infrastructure settings
 variable "aws_region" {
   description = "AWS region"
@@ -86,16 +88,24 @@ variable "cloudfront_ttl" {
   }
 }
 
+# Updated to support all HTTP methods needed for CRUD operations
 variable "cloudfront_allowed_methods" {
   description = "HTTP methods allowed by CloudFront"
   type        = list(string)
-  default     = ["GET", "HEAD", "OPTIONS"]
+  default     = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
 }
 
 variable "cloudfront_cached_methods" {
   description = "HTTP methods cached by CloudFront"
   type        = list(string)
   default     = ["GET", "HEAD"]
+}
+
+# Headers to forward to origins - needed for API requests
+variable "forwarded_headers" {
+  description = "Headers to be forwarded to origin"
+  type        = list(string)
+  default     = ["Origin", "Authorization", "Content-Type", "Accept"]
 }
 
 variable "tls_protocol_version" {
@@ -139,7 +149,7 @@ variable "enable_waf" {
   default     = true
 }
 
-# CORS configuration
+# S3 CORS configuration 
 variable "cors_allowed_headers" {
   description = "List of allowed headers for CORS"
   type        = list(string)

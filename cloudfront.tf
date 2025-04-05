@@ -30,7 +30,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
     forwarded_values {
       query_string = true
-      headers      = ["Origin"]
+      headers      = var.forwarded_headers
       cookies {
         forward = "none"
       }
