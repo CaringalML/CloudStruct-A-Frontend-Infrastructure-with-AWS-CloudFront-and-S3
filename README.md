@@ -324,6 +324,29 @@ This CI/CD pipeline ensures that whenever changes are pushed to the main branch 
 - Custom error handling for SPA routing
 - Cache behavior optimization
 
+#### HTTP Methods Configuration
+
+The `cloudfront_allowed_methods` variable in `variables.tf` can be adjusted based on your application's needs:
+
+```hcl
+variable "cloudfront_allowed_methods" {
+  description = "HTTP methods allowed by CloudFront"
+  type        = list(string)
+  default     = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
+}
+```
+
+- **For Static Websites**: If your application is purely static (HTML, CSS, JS files only), you can limit this to just `["GET", "HEAD"]`
+- **For Dynamic Applications with CRUD Operations**: The current configuration includes all HTTP methods needed for Create, Read, Update, Delete operations:
+  - `GET`: Read operations (fetching data)
+  - `POST`: Create operations (submitting new data)
+  - `PUT`/`PATCH`: Update operations (modifying existing data)
+  - `DELETE`: Delete operations (removing data)
+  - `OPTIONS`: Required for CORS preflight requests
+  - `HEAD`: Similar to GET but only returns headers
+
+This configuration allows CloudFront to forward all types of API requests to your backend when using the same domain for both frontend and API, making it suitable for full-stack applications that require CRUD functionality.
+
 ## 🛡️ WAF Protection (`waf.tf`)
 
 The infrastructure includes a Web Application Firewall (WAF) for security:
