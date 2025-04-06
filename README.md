@@ -159,6 +159,14 @@ Note that the `.env` file is excluded from Git to prevent accidentally committin
    terraform apply
    ```
 
+### 🧹 Destroying Infrastructure
+
+To remove all the AWS resources created by this project:
+
+```bash
+terraform destroy
+```
+
 ### 🔄 CI/CD Workflow
 
 The included GitHub Actions workflow (`node.js.yml`) automates the build and deployment process:
@@ -537,6 +545,8 @@ These estimates are approximate and can vary based on your specific usage patter
    - **Issue**: CloudFront cannot access objects in S3
    - **Solution**: Verify the Origin Access Control (OAC) and bucket policy are correct
    - **Check**: Review S3 bucket policy and CloudFront OAC configuration
+
+
 
 ## 🧪 Testing Your Infrastructure
 
