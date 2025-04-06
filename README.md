@@ -1,6 +1,6 @@
 # 🏗️ CloudStruct: A Frontend Infrastructure with AWS CloudFront and S3
 
-[![Frontend CI/CD](2025.png)](https://github.com/CaringalML/CloudStruct-A-Frontend-Infrastructure-with-AWS-CloudFront-and-S3/actions/workflows/frontend-cicd.yml)
+[![Frontend CI/CD](aws-architecture-diagram.png)](https://github.com/CaringalML/CloudStruct-A-Frontend-Infrastructure-with-AWS-CloudFront-and-S3/actions/workflows/frontend-cicd.yml)
 
 This repository contains Terraform configuration for provisioning a scalable, secure frontend infrastructure on AWS. The setup deploys a static website (React application) with CloudFront distribution, S3 storage, domain configuration, and WAF protection.
 
@@ -538,7 +538,35 @@ These estimates are approximate and can vary based on your specific usage patter
    - **Solution**: Verify the Origin Access Control (OAC) and bucket policy are correct
    - **Check**: Review S3 bucket policy and CloudFront OAC configuration
 
-## 📚 AWS Documentation References
+## 🧪 Testing Your Infrastructure
+
+### Sample Frontend Application for Testing
+
+To test this infrastructure with a real frontend application, you can use this sample React JS Product Management application:
+
+```bash
+git clone https://github.com/CaringalML/Product-Management-React-JS.git
+cd Product-Management-React-JS
+npm ci
+npm run build
+```
+
+This sample application provides:
+- A complete React frontend
+- Product management functionality
+- Responsive design
+- Ready-to-deploy build files
+
+After building, you can deploy the contents of the `dist` directory to your infrastructure using either:
+
+1. The manual approach: 
+   ```bash
+   aws s3 sync ./dist s3://caringalfrontend/frontend-build --delete
+   ```
+
+2. Or by setting up the GitHub Actions workflow with this repository
+
+This sample application is ideal for testing both static content delivery and, if you connect it to a backend API, the CRUD operations supported by the CloudFront configuration.
 
 1. Fork the repository at [https://github.com/CaringalML/CloudStruct-A-Frontend-Infrastructure-with-AWS-CloudFront-and-S3.git](https://github.com/CaringalML/CloudStruct-A-Frontend-Infrastructure-with-AWS-CloudFront-and-S3.git)
 2. Create a feature branch
@@ -552,7 +580,7 @@ Martin Caringal
 
 This project is open-sourced under the MIT License. See the LICENSE file for details.
 
-## 👥 Contributing
+## 📚 AWS Documentation References
 
 - **Amazon S3**: [S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/Welcome.html)
 - **Amazon CloudFront**: [CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html)
