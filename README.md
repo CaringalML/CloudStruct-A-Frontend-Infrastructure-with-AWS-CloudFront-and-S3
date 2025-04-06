@@ -1,12 +1,12 @@
 # 🏗️ CloudStruct: A Frontend Infrastructure with AWS CloudFront and S3
 
-[![Frontend CI/CD](https://github.com/CaringalML/CloudStruct-A-Frontend-Infrastructure-with-AWS-CloudFront-and-S3/actions/workflows/frontend-cicd.yml/badge.svg)](https://github.com/CaringalML/CloudStruct-A-Frontend-Infrastructure-with-AWS-CloudFront-and-S3/actions/workflows/frontend-cicd.yml)
+[![Frontend CI/CD](2025.png)](https://github.com/CaringalML/CloudStruct-A-Frontend-Infrastructure-with-AWS-CloudFront-and-S3/actions/workflows/frontend-cicd.yml)
 
 This repository contains Terraform configuration for provisioning a scalable, secure frontend infrastructure on AWS. The setup deploys a static website (React application) with CloudFront distribution, S3 storage, domain configuration, and WAF protection.
 
 ## 🏛️ Architecture Overview
 
-![Architecture Diagram](https://via.placeholder.com/800x400?text=CloudStruct+Architecture+Diagram)
+![Architecture Diagram](aws-architecture-diagram.png)
 
 This project implements a modern, **serverless** frontend infrastructure pattern leveraging AWS services. The website is hosted as static files in an S3 bucket and distributed globally through CloudFront's CDN network, with WAF security and proper domain configuration.
 
