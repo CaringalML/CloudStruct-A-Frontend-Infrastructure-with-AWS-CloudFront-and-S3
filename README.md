@@ -6,7 +6,7 @@ This repository contains Terraform configuration for provisioning a scalable, se
 
 ## 🏛️ Architecture Overview
 
-![Architecture Diagram](https://via.placeholder.com/800x400?text=CloudStruct+Architecture+Diagram)
+![Architecture Diagram](aws-architecture-diagram)
 
 This project implements a modern, **serverless** frontend infrastructure pattern leveraging AWS services. The website is hosted as static files in an S3 bucket and distributed globally through CloudFront's CDN network, with WAF security and proper domain configuration.
 
